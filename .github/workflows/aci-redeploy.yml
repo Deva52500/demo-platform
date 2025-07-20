@@ -1,0 +1,24 @@
+name: Redeploy ACI with Latest Image
+
+on:
+  workflow_run:
+    workflows: ["Build and Push Docker Image to ACR"]
+    types:
+      - completed
+
+jobs:
+  redeploy-aci:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+
+    - name: Restart ACI container
+      run: |
+        az container restart --resource-group ${{ secrets.ACI_RESOURCE_GROUP }} --name ${{ secrets.ACI_CONTAINER_NAME }}
