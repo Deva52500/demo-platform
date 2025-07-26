@@ -1,3 +1,6 @@
+permissions:
+  contents: read  # this is enough
+
 name: Redeploy ACI with Latest Image
 
 on:
@@ -21,4 +24,6 @@ jobs:
 
     - name: Restart ACI container
       run: |
-        az container restart --resource-group ${{ secrets.ACI_RESOURCE_GROUP }} --name ${{ secrets.ACI_CONTAINER_NAME }}
+        az container restart \
+          --resource-group ${{ secrets.ACI_RESOURCE_GROUP }} \
+          --name ${{ secrets.ACI_CONTAINER_NAME }}
