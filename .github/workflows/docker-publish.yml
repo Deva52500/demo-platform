@@ -1,3 +1,6 @@
+permissions:
+  contents: read  # this is enough
+
 name: Build and Push Docker Image to ACR
 
 on:
