@@ -235,7 +235,7 @@ async def chat_interface_fn(message: str, history: list[list[str]]):
 with gr.Blocks() as demo:
     gr.Markdown("# Gradio MCP Client with LLM Tool Selection")
     gr.Markdown(
-        f"This interface connects to an MCP server (`{GRADIO_MCP_SERVER_TARGET}`). "
+        f"This interface connects to an MCP test server (`{GRADIO_MCP_SERVER_TARGET}`). "
         "It uses an OpenAI LLM to decide which tool on the MCP server to call based on your query!!!."
     )
 
