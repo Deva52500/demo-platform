@@ -236,7 +236,7 @@ with gr.Blocks() as demo:
     gr.Markdown("# Gradio MCP Client with LLM Tool Selection")
     gr.Markdown(
         f"This interface connects to an MCP server (`{GRADIO_MCP_SERVER_TARGET}`). "
-        "It uses an OpenAI LLM to decide which tool on the MCP server to call based on your query!!."
+        "It uses an OpenAI LLM to decide which tool on the MCP server to call based on your query!!!."
     )
 
     chatbot = gr.Chatbot(label="Conversation", type='messages')
